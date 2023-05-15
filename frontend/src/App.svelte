@@ -2,6 +2,7 @@
 	import svelteLogo from './assets/svelte.svg';
 </script>
 
+
 <main>
 	<div>
 		<a href="https://vitejs.dev" target="_blank">
@@ -24,6 +25,10 @@
 </main>
 
 <style lang="scss">
+	main {
+		display: block;
+		width: 100%;
+	}
 	.logo {
 		height: 6em;
 		padding: 1.5em;
