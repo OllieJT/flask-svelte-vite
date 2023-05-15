@@ -1,45 +1,40 @@
 <script lang="ts">
 	import svelteLogo from '$src/assets/svelte.svg';
+	import { Link } from 'svelte-routing';
 </script>
 
-<main>
+<main class="block w-full space-y-1">
 	<div>
-		<a href="https://vitejs.dev" target="_blank">
-			<img src="/vite.svg" class="logo" alt="Vite Logo" />
+		<a href="https://vitejs.dev" target="_blank" class="inline-block">
+			<img src="/vite.svg" class="logo vite p-6 h-40" alt="Vite Logo" />
 		</a>
-		<a href="https://svelte.dev" target="_blank">
-			<img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
+		<a href="https://svelte.dev" target="_blank" class="inline-block">
+			<img src={svelteLogo} class="logo svelte p-6 h-40" alt="Svelte Logo" />
 		</a>
 	</div>
-	<h1>Vite + Svelte</h1>
+	<h1 class="text-3xl font-semibold text-white">Vite + Svelte</h1>
 
-	<div class="card" />
+	<nav class="space-x-4 py-4 text-brand-400">
+		<Link to="/" class="underline">Home</Link>
+		<Link to="/page" class="">Sub Page</Link>
+	</nav>
 
-	<p>
+	<p class="text-white">
 		Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank">SvelteKit</a>, the
 		official Svelte app framework powered by Vite!
 	</p>
 
-	<p class="read-the-docs">Click on the Vite and Svelte logos to learn more</p>
+	<p class="text-mono-400">Click on the Vite and Svelte logos to learn more</p>
 </main>
 
-<style lang="scss">
-	main {
-		display: block;
-		width: 100%;
-	}
+<style>
 	.logo {
-		height: 6em;
-		padding: 1.5em;
 		will-change: filter;
 	}
-	.logo:hover {
+	.logo.vite:hover {
 		filter: drop-shadow(0 0 2em #646cffaa);
 	}
 	.logo.svelte:hover {
 		filter: drop-shadow(0 0 2em #ff3e00aa);
-	}
-	.read-the-docs {
-		color: #888;
 	}
 </style>
