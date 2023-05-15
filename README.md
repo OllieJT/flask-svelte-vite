@@ -1,53 +1,46 @@
 # flask + vite + svelte
 
-We'll be using Vite to build a Svelte bundle, and then serving it with Flask
-so we can still call into Python for API calls.
+This is a plain starter project for a Flask app with a Svelte frontend. You should have Node, Python, and Pip installed before starting.
 
-First, make sure Flask is installed:
+Project inspired by and forked from [pkage/flask-svelte-vite](https://github.com/pkage/flask-svelte-vite)
 
-```
-$ pip install flask
-```
+If you're unfamiliar with Svelte, you can find some notes in `/frontend/README.md` and the [Svelte docs](https://svelte.dev/docs). If you're learning Svelte, you can make use of the official interactive Svelte tutorial [here](https://svelte.dev/tutorial/basics).
 
-Then, we created the svelte bundle inside of the root directory with npm's
-create tool, based on the `vite@latest` package with the Svelte template:
+## Setup
 
-```
-$ npm create vite@latest frontend -- --template svelte
-$ cd frontend
-$ npm install
+Clone this repo without git history using Degit.
+
+```sh
+npx degit OllieJT/flask-svelte-vite your-project-name
+cd your-project-name
 ```
 
-Then, we run Vite to compile the Svelte app into a static bundle in the `frontend/dist` directory (telling Vite
-to watch for changes):
+Install svelte dependencies
 
-```
-$ npx vite build --watch
-```
-
-Back in the root directory, we direct Flask to serve static files from th e `frontend/dist` directory:
-
-```python
-app = Flask(
-    __name__,
-    static_folder='frontend/dist',
-    static_url_path="/"
-)
+```sh
+cd frontend
+npm install
 ```
 
-Additionally, we add a catch-all route so that we can send all requests that
-don't hit an API endpoint in Flask to Svelte so we can handle it there:
+## Development
 
-```python
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def catch_all(path):
-    return app.send_static_file("index.html")
-```
+# Backend
 
-Now, you can run flask just with:
+The Flask app serves files from the `/frontend/dist/` directory. This means the frontend must either be built before the backend can serve it, or in development mode.
 
-```
-$ flask run
-```
+### Frontend
 
+For all intents and purposes, the frontend is a standalone Svelte app. You should `cd` into the project and run commands from there when working on the frontend.
+
+#### Scripts
+
+| Script                | Description                                                                                                                                                |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `npm run dev`         | Starts the development server using Vite, enabling hot-module replacement and other development features.                                                  |
+| `npm run build`       | Builds the project for production use, optimizing and minifying the code for deployment.                                                                   |
+| `npm run preview`     | Serves the built version of your site for previewing purposes, simulating a production deployment.                                                         |
+| `npm run check`       | Runs a checks on the Svelte components in the project for best-practices such as accesibility issues.                                                      |
+| `npm run check:watch` | Same as `check` but in watch mode, meaning it will continually check your code as you make changes.                                                        |
+| `npm run lint`        | Checks if the codebase adheres to the formatting rules specified by Prettier and ESLint, both are tools to enforce code style and find potential problems. |
+| `npm run format`      | Formats the codebase according to the rules specified by Prettier, automatically fixing any formatting inconsistencies.                                    |
+| `npm run test`        | Runs the tests for the project using Vitest, a test runner optimized for Vite.                                                                             |
