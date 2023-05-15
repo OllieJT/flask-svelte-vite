@@ -1,16 +1,19 @@
 {
-  "name": "frontend",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@sveltejs/vite-plugin-svelte": "^2.2.0",
-    "svelte": "^3.59.1",
-    "vite": "^4.3.5"
-  }
+	"name": "frontend",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-check",
+		"check:watch": "svelte-check --watch"
+	},
+	"dependencies": {
+		"@sveltejs/vite-plugin-svelte": "^2.2.0",
+		"svelte-check": "^3.3.2",
+		"svelte": "^3.59.1",
+		"vite": "^4.3.5"
+	}
 }
