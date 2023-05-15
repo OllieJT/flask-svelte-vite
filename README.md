@@ -44,3 +44,15 @@ For all intents and purposes, the frontend is a standalone Svelte app. You shoul
 | `npm run lint`        | Checks if the codebase adheres to the formatting rules specified by Prettier and ESLint, both are tools to enforce code style and find potential problems. |
 | `npm run format`      | Formats the codebase according to the rules specified by Prettier, automatically fixing any formatting inconsistencies.                                    |
 | `npm run test`        | Runs the tests for the project using Vitest, a test runner optimized for Vite.                                                                             |
+
+#### Recommended Packages
+
+Here are some packages I recommend for most projects. They are not included by default, but you can install them with `npm install <package-name>` from the frontend directory.
+
+-   `zod` - runtime type checking + errors
+-   `zod-form-data` - form utils for zod
+-   `@inqling/svelte-icons` - heroicons and brandicons
+-   `@fontsource/inter` - inter font
+-   `date-fns` - date formatting utils
+-   `clsx` - dynamic classname utils
+-   `svelte-meta-tags` - tidy meta tag management
