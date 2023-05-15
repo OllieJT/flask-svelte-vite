@@ -7,9 +7,6 @@
 	export let url = window.location.pathname;
 </script>
 
-123123
-<br />
-
 <Router {url}>
 	<nav>
 		<Link to="/">Home</Link>
@@ -18,6 +15,6 @@
 	<div>
 		<Route path="/page/:id" component={Page} />
 		<Route path="/page" component={Page} />
-		<Route path="/" component={Home}/>
+		<Route path="/" component={Home} />
 	</div>
 </Router>
